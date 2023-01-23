@@ -1,0 +1,14 @@
+{
+  "vendor": {
+    "id": "VENDB02",
+    "fname": "Salman",
+    "lName": "Khan",
+    "salary": 80800808,
+    "dateOfJoining": "03-2-2022",
+    "source":"Vendor B",
+    "contact": {
+      "phoneNumber": "808080080",
+      "emailAddress": "sk@gmail.com"
+    }
+  }
+}

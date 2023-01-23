@@ -1,0 +1,12 @@
+[
+    {
+      "id": "VEND03",
+      "name": "Amir",
+      "age": 6,
+      "amount": 20000000,
+      "email":"amir@gmail.com",
+      "mobile":"8080880808",
+      "doj": "28-2-2022",
+      "source":"Vendor C"
+    }
+  ]
