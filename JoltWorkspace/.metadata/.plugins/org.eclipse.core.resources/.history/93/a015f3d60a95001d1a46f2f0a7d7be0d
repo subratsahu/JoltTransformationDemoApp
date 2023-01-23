@@ -1,0 +1,9 @@
+package in.libertygeneral.jolt.service;
+
+
+public interface CustomerService {
+	public void loadCustomers();
+	public void createVendorACustomer();
+	public void createVendorBCustomer();
+	public void createVendorCCustomer();
+}

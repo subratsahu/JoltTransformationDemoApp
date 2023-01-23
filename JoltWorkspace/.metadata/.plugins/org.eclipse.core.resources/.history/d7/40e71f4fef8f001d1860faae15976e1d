@@ -1,0 +1,5 @@
+package in.libertygeneral.jolt.service;
+
+public class VendorBCustomerServiceImplementation {
+
+}

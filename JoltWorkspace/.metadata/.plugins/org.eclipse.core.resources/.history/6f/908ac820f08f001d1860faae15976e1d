@@ -1,0 +1,19 @@
+package in.libertygeneral.jolt.contoller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import in.libertygeneral.jolt.entity.Customer;
+import in.libertygeneral.jolt.repository.CustomerRepository;
+
+public class LGIJoltTransformationController {
+
+    @Autowired
+    private CustomerRepository custRepository;
+
+    @GetMapping("/employees")
+    public List<Customer> employeeList() {
+        return custRepository.findAll();
+    }
+}

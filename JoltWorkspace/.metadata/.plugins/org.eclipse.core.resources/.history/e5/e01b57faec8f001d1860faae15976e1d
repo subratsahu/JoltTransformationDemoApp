@@ -1,0 +1,5 @@
+package in.libertygeneral.jolt.repository;
+
+public class CustomerRepository {
+
+}

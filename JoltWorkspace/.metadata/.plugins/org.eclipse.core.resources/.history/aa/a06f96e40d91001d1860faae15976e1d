@@ -1,0 +1,53 @@
+package in.libertygeneral.jolt.contoller;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+
+import in.libertygeneral.jolt.entity.Customer;
+import in.libertygeneral.jolt.repository.CustomerRepository;
+import in.libertygeneral.jolt.service.CustomerService;
+import in.libertygeneral.jolt.service.VendorACustomerServiceImplementation;
+import in.libertygeneral.jolt.service.VendorBCustomerServiceImplementation;
+import org.json.simple.JSONObject;
+import in.libertygeneral.jolt.service.VendorCCustomerServiceImplementation;
+
+@RestController
+public class LGIJoltTransformationController {
+
+    @Autowired
+    private CustomerRepository custRepository;
+    
+    VendorACustomerServiceImplementation aCustServImp;
+    VendorBCustomerServiceImplementation bCustServImp;
+    VendorCCustomerServiceImplementation cCustServImp;
+
+    @GetMapping("/customers")
+    public List<Customer> getAllCustomers() {
+        return custRepository.findAll();
+    }
+    
+    @PostMapping(value = "/transformVendorACustomer",
+            consumes = {MediaType.APPLICATION_JSON_VALUE},
+            produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<String> transformVendorACustomer(@RequestBody JSONObject inputJson) {
+    	aCustServImp.createCustomer(obj);
+    }    
+    @PostMapping("/transformVendorBCustomer")
+    public void transformVendorBCustomer(@RequestBody ResponseEntity<Map<String, Object>> responseEntity) {
+        bCustServImp.createCustomer(responseEntity);
+    }
+    @PostMapping("/transformVendorCCustomer")
+    public void transformVendorCCustomer(@RequestBody ResponseEntity<Map<String, Object>> responseEntity) {
+        cCustServImp.createCustomer(responseEntity);
+    }
+
+}

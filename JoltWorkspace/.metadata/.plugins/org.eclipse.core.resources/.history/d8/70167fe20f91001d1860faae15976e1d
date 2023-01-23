@@ -1,0 +1,9 @@
+package in.libertygeneral.jolt.service;
+
+import java.util.Map;
+
+import org.springframework.http.ResponseEntity;
+
+public interface CustomerService {
+	public void createCustomer(ResponseEntity<Map<String, Object>> responseEntity);
+}

@@ -1,0 +1,8 @@
+package in.libertygeneral.jolt.repository;
+
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public class CustomerRepository extends JpaRepository<Cust, String> {
+
+}

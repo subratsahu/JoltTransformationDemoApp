@@ -1,0 +1,5 @@
+package in.libertygeneral.jolt.util;
+
+public class JoltUtil {
+
+}

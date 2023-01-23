@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: Subrat Kumar Sahu
+Build-Jdk: 17.0.5
+Implementation-Title: SpingBootCRUDApp
+Implementation-Version: 1.0
+Implementation-Vendor-Id: in.lgi.spingboot.crudapp
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
+ -starter-parent/SpingBootCRUDApp
+Created-By: Maven Integration for Eclipse
+

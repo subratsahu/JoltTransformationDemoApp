@@ -1,0 +1,51 @@
+package in.libertygeneral.jolt.contoller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+
+import in.libertygeneral.jolt.entity.Customer;
+import in.libertygeneral.jolt.repository.CustomerRepository;
+import in.libertygeneral.jolt.service.CustomerService;
+import in.libertygeneral.jolt.service.VendorACustomerServiceImplementation;
+import in.libertygeneral.jolt.service.VendorBCustomerServiceImplementation;
+import in.libertygeneral.jolt.service.VendorCCustomerServiceImplementation;
+
+@RestController
+public class LGIJoltTransformationController {
+
+    @Autowired
+    private CustomerRepository custRepository;
+    
+    @Autowired
+    VendorACustomerServiceImplementation aCustServImp;
+    @Autowired
+    VendorBCustomerServiceImplementation bCustServImp;
+    @Autowired
+    VendorCCustomerServiceImplementation cCustServImp;
+
+    @GetMapping("/customers")
+    public List<Customer> getAllCustomers() {
+        return custRepository.findAll();
+    }
+    
+    @PostMapping("/transformVendorACustomer")
+    public void transformVendorACustomer() {
+    	aCustServImp.createCustomer();
+        
+    }
+    
+    @PostMapping("/transformVendorBCustomer")
+    public void transformVendorBCustomer() {
+        bCustServImp.createCustomer();
+    }
+    @PostMapping("/transformVendorCCustomer")
+    public void transformVendorCCustomer() {
+        cCustServImp.createCustomer();
+    }
+    
+}

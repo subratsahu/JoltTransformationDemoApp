@@ -1,0 +1,48 @@
+package in.libertygeneral.jolt.service;
+
+
+import in.libertygeneral.jolt.entity.Customer;
+import in.libertygeneral.jolt.repository.CustomerRepository;
+import in.libertygeneral.jolt.util.JoltUtil;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import javax.annotation.PostConstruct;
+import java.util.Map;
+
+@Service("VendorACustomerService")
+public class VendorACustomerServiceImplementation implements CustomerService{
+    
+    @Autowired
+    CustomerRepository custRepository;
+    
+    @Autowired
+    private RestTemplate restTemplate;
+    
+    
+    
+//    @PostConstruct
+//    public void init() {
+//    	loadCustomers();
+//    }
+
+//    @Override
+    public void loadCustomers(){
+    	
+        
+    }
+    
+    @Override
+    public void createVendorACustomer() {
+    	ResponseEntity<Map<String, Object>> responseEntity = restTemplate.exchange("http://localhost:3000/vendorAcust", HttpMethod.GET, null, new ParameterizedTypeReference<Map<String, Object>>() {
+        });
+        Map<String, Object> response = responseEntity.getBody();
+        Customer customer = JoltUtil.getEntity("/vendorASpec.json", Customer.class, response);
+        custRepository.save(customer);
+    }
+}
